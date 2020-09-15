@@ -10,7 +10,7 @@
   </head>
   <body>
     <div id="editor">
-      <textarea :value="$route.query.input" @input="update">{{$route.query.input}}</textarea>
+      <textarea :value="input" @input="update">{{$route.query.input}}</textarea>
       <div v-html="compiledMarkdown"></div>
     </div>
     <script>
@@ -29,7 +29,7 @@
 
     },
         data: {
-          input: ""
+          input: $route.query.input
         },
         computed: {
           compiledMarkdown: function() {
