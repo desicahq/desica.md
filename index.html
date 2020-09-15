@@ -30,6 +30,9 @@
         console.log(input)
 
     },
+        return {
+        input: "# hello"
+      },
         computed: {
           compiledMarkdown: function() {
             return marked(this.input, { sanitize: true });
