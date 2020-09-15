@@ -24,12 +24,13 @@
         mounted: function() {
         parameters = this.$route.query
         console.log(parameters)
-          data: {
-          input = this.$route.query.name
-          }
+        input = this.$route.query.name
         console.log(input)
 
     },
+                data: {
+          input: ""
+        },
         computed: {
           compiledMarkdown: function() {
             return marked(this.input, { sanitize: true });
