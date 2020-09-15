@@ -14,8 +14,21 @@
     </div>
 
     <script>
+      var router = new VueRouter({
+    mode: 'history',
+    routes: []
+  });
       new Vue({
+        router,
         el: "#editor",
+        mounted: function() {
+        parameters = this.$route.query
+        console.log(parameters)
+
+        doc = this.$route.query.name
+        console.log(doc)
+
+    },
         data: {
           input: "# hello"
         },
