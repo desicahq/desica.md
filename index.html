@@ -26,12 +26,12 @@
         parameters = this.$route.query
         console.log(parameters)
 
-        doc = this.$route.query.name
-        console.log(doc)
+        input = this.$route.query.name
+        console.log(input)
 
     },
         data: {
-          input: this.$route.query.doc
+          input: ""
         },
         computed: {
           compiledMarkdown: function() {
