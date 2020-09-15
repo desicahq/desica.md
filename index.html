@@ -13,7 +13,6 @@
       <textarea :value="input" @input="update"></textarea>
       <div v-html="compiledMarkdown"></div>
     </div>
-
     <script>
       var router = new VueRouter({
     mode: 'history',
@@ -29,9 +28,9 @@
         console.log(input)
 
     },
-        return: {
-        input: "# hello"
-      },
+        data: {
+          input: ""
+        },
         computed: {
           compiledMarkdown: function() {
             return marked(this.input, { sanitize: true });
