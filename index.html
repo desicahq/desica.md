@@ -11,7 +11,7 @@
   </head>
   <body>
     <div id="editor">
-      <textarea :value="input" placeholder="Enter some markdown" @input="update"></textarea>
+      <textarea v-model="input" placeholder="Enter some markdown" @input="update"></textarea>
       <div v-html="compiledMarkdown">Your result will be shown here</div>
     </div>
     <script>
@@ -40,7 +40,7 @@
           compiledMarkdown: function () {
             return marked(this.input, { sanitize: true });
           },
-          message: {
+          input: {
     get () {
       return this.$store.state.obj.input
     },
