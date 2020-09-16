@@ -19,6 +19,14 @@
         mode: "history",
         routes: []
       });
+      const store = new Vuex.Store({
+  state: {
+    input: ""
+  },
+  mutations: {
+  	edit: state => state.input
+  }
+})
       new Vue({
         router,
         el: "#editor",
@@ -34,11 +42,20 @@
         computed: {
           compiledMarkdown: function () {
             return marked(this.input, { sanitize: true });
-          }
+          },
+          message: {
+    get () {
+      return this.$store.state.obj.input
+    },
+    set (value) {
+      this.$store.commit('edit', value)
+    }
+  }
         },
         methods: {
           update: _.debounce(function (e) {
             this.input = e.target.value;
+            store.commit('edit')
           }, 300)
         }
       });
