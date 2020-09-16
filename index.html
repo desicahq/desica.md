@@ -11,7 +11,7 @@
   </head>
   <body>
     <div id="editor">
-      <textarea v-model="input" placeholder="Enter some markdown" @input="update"></textarea>
+      <textarea v-model="input1" placeholder="Enter some markdown" @input="update"></textarea>
       <div v-html="compiledMarkdown">Your result will be shown here</div>
     </div>
     <script>
@@ -21,10 +21,10 @@
       });
       const store = new Vuex.Store({
   state: {
-    input: ""
+    input1: ""
   },
   mutations: {
-  	edit: state => state.input
+  	edit: state => state.input1
   }
 })
       new Vue({
@@ -36,13 +36,16 @@
           input = this.$route.query.name;
           console.log(input);
         },
+                data: {
+          input: ""
+        },
         computed: {
           compiledMarkdown: function () {
-            return marked(this.input, { sanitize: true });
+            return marked(this.getvar, { sanitize: true });
           },
-          input: {
+          input1: {
     get () {
-      return this.$store.state.obj.input
+      return this.$store.state.obj.input1
     },
     set (value) {
       this.$store.commit('edit', value)
@@ -54,7 +57,10 @@
             this.input = e.target.value;
             store.commit('edit')
           }, 300)
-        }
+        },
+        getvar: () {
+          input: input1
+      }
       });
     </script>
   </body>
