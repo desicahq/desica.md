@@ -10,7 +10,7 @@
   </head>
   <body>
     <div id="editor">
-      <textarea :value="input" @input="update"></textarea>
+      <textarea :value="input" placeholder="Enter some markdown" @input="update"></textarea>
       <div v-html="compiledMarkdown"></div>
     </div>
     <script>
