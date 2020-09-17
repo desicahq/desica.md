@@ -15,9 +15,7 @@ new Vue({
   el: "#editor",
   mounted: function () {
     parameters = this.$route.query;
-    console.log(parameters);
     input = this.$route.query.name;
-    console.log(input);
   },
   data: {
     input: "",
